@@ -11,11 +11,8 @@
     }
   ],
   "routes": [
-    // все запросы /api/* пойдут в твою Python-функцию
     { "src": "/api/(.*)", "dest": "/api/index.py" },
-    // отдаём всё из файловой системы (HTML, CSS, JS)
     { "handle": "filesystem" },
-    // а всё, что не нашлось — отдаём index.html
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
