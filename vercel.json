@@ -6,14 +6,15 @@
       "use": "@vercel/static-build",
       "config": {
         "installCommand": "cd frontend && pnpm install",
-        "buildCommand":   "cd frontend && pnpm run build"
+        "buildCommand":   "cd frontend && pnpm run build",
+        "outputDirectory": "frontend/dist"
       }
     },
     { "src": "backend/api/index.py", "use": "@vercel/python" }
   ],
-  "outputDirectory": "frontend/dist",
-
   "routes": [
+    { "src": "^/v1/(.*)$",  "dest": "backend/api/index.py" },
     { "src": "^/api/(.*)$", "dest": "backend/api/index.py" }
   ]
 }
+
