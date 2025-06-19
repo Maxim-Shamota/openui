@@ -3,16 +3,19 @@
     {
       "src": "frontend/package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "backend/openui/dist" } 
+      "config": { "distDir": "../backend/openui/dist" }
     },
     {
-      "src": "backend/api/index.py",
+      "src": "api/index.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "backend/api/index.py" },
+    // все запросы /api/* пойдут в твою Python-функцию
+    { "src": "/api/(.*)", "dest": "/api/index.py" },
+    // отдаём всё из файловой системы (HTML, CSS, JS)
     { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "index.html" }
+    // а всё, что не нашлось — отдаём index.html
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
