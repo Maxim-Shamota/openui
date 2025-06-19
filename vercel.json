@@ -3,7 +3,7 @@
     {
       "src": "frontend/package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "backend/openui/dist" }   // ← здесь ключевая правка
+      "config": { "distDir": "backend/openui/dist" } 
     },
     {
       "src": "backend/api/index.py",
