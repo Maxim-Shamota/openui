@@ -6,7 +6,6 @@
 	"type": "module",
 	"scripts": {
 		"build": "vite build",
-		"postbuild": "rm -rf ../backend/openui/dist && cp -r dist ../backend/openui/dist",
 		"deploy": "npm run build -- --mode hosted && fly deploy ../backend && git restore ../backend/openui/dist && git clean -f ../backend/openui/dist/assets/",
 		"commit": "cz",
 		"dev": "vite --open",
