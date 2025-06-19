@@ -1,0 +1,7 @@
+{
+  "name": "OpenUI",
+  "short_name": "OpenUI",
+  "start_url": ".",
+  "display": "standalone",
+  "icons": []
+}
